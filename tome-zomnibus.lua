@@ -1,11 +1,18 @@
 ------------------------------------------------
-section "tome-zomnibus_lite/data/achievements/half_rogue_death.lua"
+section "tome-zomnibus/data/achievements/half_rogue_death.lua"
 
 t("Honorary Roguelike Win", "荣誉永久死亡胜利", "achievement name")
 t("Won the game in Normal or Semi-Roguelike permadeath mode without dying.", "在冒险或半永久死亡模式下赢得游戏，且没有死亡。", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/data/half_rogue_descriptors.lua"
+section "tome-zomnibus/data/alch_notify_timed-effects.lua"
+
+t("alchemist", "炼金术师", "effect subtype")
+t("The Brotherhood of Alchemists", "炼金术士兄弟会", "_t")
+t("You have the ingredients for the following alchemist elixirs:", "你收集了以下的炼金材料：", "_t")
+
+------------------------------------------------
+section "tome-zomnibus/data/half_rogue_descriptors.lua"
 
 t("Semi-Roguelike (mild)", "半永久死亡(淡味)", "birth descriptor name")
 t("#GOLD##{bold}#Semi-Roguelike (mild) mode#WHITE#", "#GOLD##{bold}#半永久死亡(淡味)模式#WHITE#", "_t")
@@ -40,7 +47,7 @@ t("  · Destroy the Sunwall", "  · 摧毁太阳堡垒", "_t")
 t("  · Defeat the Atmos Tribe leaders in the Palace of Fumes", "  · 在烟雾宫殿击败气之部族领袖。", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/data/landmark_timed_effects.lua"
+section "tome-zomnibus/data/landmark_timed_effects.lua"
 
 t("landmark", "地标", "effect subtype")
 t("You are traveling to the landmark '%s at %d,%d'.  The auto-explore function (currently bound to '%s') will continue to this landmark in preference to other destinations, until you arrive at the landmark, leave the level, or cancel this effect.", "正在前往地标 %s 位于 %d,%d 。使用自动探索功能（当前键位 %s ）会自动前往这一地标，直到你到达目标，离开地图或取消效果为止。", "tformat")
@@ -55,7 +62,46 @@ t("<<?? unknown>>", "<<?? unknown>>", "_t")
 
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-compare.lua"
+section "tome-zomnibus/data/opt_in_adventurers_timed_effects.lua"
+
+t("evade", "闪避", "effect subtype")
+t("You are evading adventurers parties and ziguranth patrols.  You will automatically evade without prompt while this effect lasts.", "躲避冒险家和伊格巡逻队。效果开启期间你会自动避开他们。", "_t")
+t("You are evading orc patrols.  You will automatically evade without prompt while this effect lasts.", "躲避兽人巡逻队。效果开启期间你会自动避开他们。", "_t")
+t("You are evading Sun Paladin patrols and Anorithil patrols.  You will automatically evade without prompt while this effect lasts.", "躲避太阳骑士和星月术士巡逻队。效果开启期间你会自动避开他们。", "_t")
+
+------------------------------------------------
+section "tome-zomnibus/data/resustain_talents.lua"
+
+t("Restart Sustains", "重启持续技能", "talent name")
+t("The ability to restart sustains while resting.", "休息时重启持续技能", "_t")
+t("#LIGHT_BLUE#Talent %s is active; not restarting marked sustains.#LAST#", "#LIGHT_BLUE#技能%s已开启，不会重启已标记的持续技能。#LAST#", "logPlayer")
+
+------------------------------------------------
+section "tome-zomnibus/data/resustain_timed_effects.lua"
+
+t("sustain", "持续", "effect subtype")
+t("One or more of your marked sustains has been deactivated:", "其中某个你标记的持续技能被关闭了：", "_t")
+-- untranslated text
+--[==[
+t("\
+  · %s", "\
+  · %s", "tformat")
+--]==]
+
+
+------------------------------------------------
+section "tome-zomnibus/hooks/hooks-alch-notify.lua"
+
+t("#GOLD##{bold}#Alchemist potion notifications#{normal}##LAST#", "#GOLD##{bold}#炼金药水提醒#{normal}##LAST#", "_t")
+t("Alchemist Notifications", "炼金术师提醒", "_t")
+t([[If enabled, you will be notified via popup when you collect all the ingredients needed for one of the potions assigned to you as part of the Brotherhood of Alchemists quest.  A status icon will also be provided, listing the potions for which you have all ingredients.
+You may need to restart the game for this change to fully take effect.]], [[启用时，当你收集到炼金术师兄弟会任务中分配给你的一种药剂所需的全部材料时，你会受到弹窗通知。这还会显示一个状态图标，列出你拥有的所有药剂材料。
+你需要重新启动游戏才能使改变生效。]], "_t")
+t("enabled", "已启用", "_t")
+t("disabled", "已禁用", "_t")
+
+------------------------------------------------
+section "tome-zomnibus/hooks/hooks-compare.lua"
 
 t("Activate the infusion to heal yourself for %d life over %d turns.", "激活纹身治疗你自己 %d 生命值，持续 %d 回合。", "tformat")
 t("Activate the infusion to heal yourself for %d(%s) life over %d(%s) turns.", "激活纹身治疗你自己 %d(%s) 生命值，持续 %d(%s) 回合。", "tformat")
@@ -235,7 +281,7 @@ The deep cold also crystalizes your mind, removing one random detrimental mental
 
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-cooldowns.lua"
+section "tome-zomnibus/hooks/hooks-cooldowns.lua"
 
 t("#GOLD##{bold}#Passive cooldown trackers#{normal}##LAST#", "#GOLD##{bold}#被动技能冷却显示#{normal}##LAST#", "_t")
 t("Passive Cooldowns", "被动技能冷却显示", "_t")
@@ -244,7 +290,7 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-curse-levels.lua"
+section "tome-zomnibus/hooks/hooks-curse-levels.lua"
 
 t("#GOLD##{bold}#Show power of cursed auras#{normal}##LAST#", "#GOLD##{bold}#显示诅咒光环强度#{normal}##LAST#", "_t")
 t("Curse Levels", "诅咒等级", "_t")
@@ -255,7 +301,7 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-displace-track.lua"
+section "tome-zomnibus/hooks/hooks-displace-track.lua"
 
 t("#GOLD##{bold}#Visual tracking of Displacement Shield#{normal}##LAST#", "#GOLD##{bold}#偏转护盾显示#{normal}##LAST#", "_t")
 t("Displacement Tracking", "偏转护盾显示", "_t")
@@ -266,7 +312,7 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-effects-z.lua"
+section "tome-zomnibus/hooks/hooks-effects-z.lua"
 
 t("#GOLD##{bold}#Display effects under actors#{normal}##LAST#", "#GOLD##{bold}#在角色下层显示效果#{normal}##LAST#", "_t")
 t("Effects Under Actors", "效果位于角色下层", "_t")
@@ -281,7 +327,7 @@ t([[If enabled, the game will attempt to detect when multiple lingering spell/ta
 t("#GOLD##{bold}#\"Flatten\" overlapping effects#{normal}##LAST#", "#GOLD##{bold}#合并层叠效果#{normal}##LAST#", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-gem-resonate.lua"
+section "tome-zomnibus/hooks/hooks-gem-resonate.lua"
 
 t("When wielded/worn", "当使用或装备时：", "_t")
 t([[The power released by the %s resonates, conferring the following effects:
@@ -295,7 +341,7 @@ t("Seriously, you shouldn't be seeing this.", "Seriously, you shouldn't be seein
 
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-gem-transmo.lua"
+section "tome-zomnibus/hooks/hooks-gem-transmo.lua"
 
 t("#GOLD##{bold}#Auto-transmo gems#WHITE##{normal}#", "#GOLD##{bold}#自动转化宝石#WHITE##{normal}#", "_t")
 t("Auto-Transmo Gems", "自动转化宝石", "_t")
@@ -372,13 +418,13 @@ t("???", "???", "_t")
 
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-golem-gender.lua"
+section "tome-zomnibus/hooks/hooks-golem-gender.lua"
 
 t("Golem is female", "傀儡雌性", "_t")
 t("Golem is neuter", "傀儡中型", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-half-rogue.lua"
+section "tome-zomnibus/hooks/hooks-half-rogue.lua"
 
 t("Semi-Roguelike (mild)", "半永久死亡(淡味)", "_t")
 t("Semi-Roguelike (barbecue)", "半永久死亡 (烧烤)", "_t")
@@ -392,7 +438,39 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-invorder.lua"
+section "tome-zomnibus/hooks/hooks-hero-tooltip.lua"
+
+t("#GOLD##{bold}#Show negative life in tooltips#WHITE##{normal}#", "#GOLD##{bold}#信息框显示负血量#WHITE##{normal}#", "_t")
+t("Pragmatic Heroism", "实用英勇纹身", "_t")
+t([[If enabled, the tooltips of actors (including the player) with life below zero will show their negative life value and the negative minimum value at which they will die.  If disabled, tooltips will show the game default "HP: unknown".
+      
+In addition, if enabled, the Minimalist UI's life bar will show the player's negative life value and die-at threshold, with a modified meter display controlled by the "Combined life bar" option below.]], [[如果启用，生命值低于零的角色（包括玩家）的信息框，将显示他们的血量和它们的最低负血量。 如果禁用，信息框将显示游戏默认的 "HP：未知"。
+      
+此外，如果启用，简约UI的生命栏将显示玩家的负生命值和死亡临界值，修改后的仪表显示由下面的 "组合生命栏 "选项控制。]], "_t")
+t("enabled", "已启用", "_t")
+t("disabled", "已禁用", "_t")
+t([[Controls display of the life bar in the Minimalist and Classic UIs when the "Show negative life in tooltips" option is enabled:
+
+  · If this option is disabled (the default), the life bar will display normally when your life is positive, and when negative will show a black "life" meter expanding from the right as the player's life decreases from zero to your negative die at threshold.
+
+  · If this option is enabled, the life bar will show a "combined" life meter, running from your die-at threshold (zero or negative) up to your max life.  If your die-at threshold is negative, the part of the life bar that reflects negative life will be colored differently.
+
+For either setting of this option, if "Show negative life in tooltips" is enabled and your life is below zero, the life bar will show your negative life value and "die-at" threshold numerically.]], [[当启用 "在工具提示中显示负生命 "选项时，控制简约和经典用户界面中生命条的显示。
+
+- 如果这个选项被禁用（默认），当你的生命值为正值时，生命条将正常显示，而当你的生命值为负值时，将显示一个黑色的 "生命 "表，随着玩家的生命值从零减少到你的负值，生命条将从右边扩展。
+
+- 如果启用了这个选项，生命条将显示成“组合”生命值条，从你的死亡生命值（零或负）到你的最大生命。如果你的死亡生命值是负数，生命条中反映负数生命的部分将以不同的颜色显示。
+
+对于该选项的任何一种设置，如果启用了 "在工具提示中显示负生命"，并且您的生命低于零，生命条将以数字方式显示您的负生命值和 "死亡 "阈值。]], "_t")
+t("#GOLD##{bold}#Combined life bar#WHITE##{normal}#", "#GOLD##{bold}#合并生命值条#WHITE##{normal}#", "_t")
+-- untranslated text
+--[==[
+t("+", "+", "_t")
+--]==]
+
+
+------------------------------------------------
+section "tome-zomnibus/hooks/hooks-invorder.lua"
 
 t("#GOLD##{bold}#Sort gems by tier#WHITE##{normal}#", "#GOLD##{bold}#根据材质等级排序宝石#WHITE##{normal}#", "_t")
 t("Inventory Sort Order", "物品排序", "_t")
@@ -401,7 +479,7 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-item-notes.lua"
+section "tome-zomnibus/hooks/hooks-item-notes.lua"
 
 t("Edit note", "编辑笔记", "_t")
 t("Add note", "添加笔记", "_t")
@@ -412,7 +490,7 @@ t("Edit item note", "编辑物品笔记", "_t")
 t("New text", "新笔记", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-landmark.lua"
+section "tome-zomnibus/hooks/hooks-landmark.lua"
 
 t("Go to %s", "前往%s", "tformat")
 t("View %s on map", "查看地图上的%s", "tformat")
@@ -451,13 +529,49 @@ t("%s (%d)", "%s (%d)", "tformat")
 
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-mirror-golem.lua"
+section "tome-zomnibus/hooks/hooks-low-hp-popup.lua"
+
+t("#GOLD##{bold}#Low-health warning popup threshold#WHITE##{normal}#", "#GOLD##{bold}#低生命值警告阈值#WHITE##{normal}#", "_t")
+t("Low Health Popup", "低生命值警告", "_t")
+t("If set to a nonzero value, a warning dialog will pop up when you fall below the specified percentage of your maximum life.  The threshold value can range from 1% to 99%; set to 0 to disable the popup.", "如果设置到非零值，会在你的生命值降低到最大生命值对应比例的时候弹出警告弹窗。阈值可以设置为1%到99%；设置为0会禁用弹窗。", "_t")
+t("disabled", "已禁用", "_t")
+t("Low Health Popup Threshold", "低生命值警告阈值", "_t")
+t("% of max life (0 to disable):", "%最大生命值 (0 禁用):", "_t")
+t("If enabled, the warning provided by the \"Low-health warning popup threshold\" option will be presented in the style of the in-game \"Life Lost Warning\" option (a prominent message flashed on the screen, and keyboard and mouse input blocked for two seconds) rather than as a popup dialog.", "开启时，“低生命值警告”的警告效果将会和游戏内的“生命损失百分比提醒”类似（屏幕上出现警告悬浮文字，同时锁定键盘和鼠标2秒，代替弹窗警告）。", "_t")
+t("#GOLD##{bold}#Low-health warning as flyer#WHITE##{normal}#", "#GOLD##{bold}#低生命值警告显示为悬浮文字#WHITE##{normal}#", "_t")
+t("enabled", "已启用", "_t")
+
+------------------------------------------------
+section "tome-zomnibus/hooks/hooks-med-summon.lua"
+
+t("Meditation is active. Proceed?", "你开启了冥想。确认？", "_t")
+t("No", "否", "_t")
+t("Yes", "是", "_t")
+t("#GOLD##{bold}#Confirm summons while meditating#{normal}##LAST#", "#GOLD##{bold}#冥想时召唤进行警告#{normal}##LAST#", "_t")
+t("Don't Summon While Meditating", "冥想时不召唤", "_t")
+t("If enabled (the default), you will be prompted to confirm using any equilibrium-based summon talent while the Meditation talent is active.", "开启时（默认），当你在开启冥想技能的时候使用消耗失衡的召唤技能，你会收到警告。", "_t")
+t("enabled", "已启用", "_t")
+t("disabled", "已禁用", "_t")
+
+------------------------------------------------
+section "tome-zomnibus/hooks/hooks-mirror-golem.lua"
 
 t("[Alter the appearance of %s]", "[改变%s的形象]", "tformat")
 t("*#LIGHT_GREEN#As you gaze into the mirror you see an infinite number of slightly different reflections of yourself and your golem. You feel dizzy.#WHITE#*", "*#LIGHT_GREEN#当你凝视镜子时，你会看到无数个略有不同的你自己的倒影。你感到一阵头晕。#WHITE#*", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-notestoself.lua"
+section "tome-zomnibus/hooks/hooks-nihil-counter.lua"
+
+t("#GOLD##{bold}#Visual Nihil stack markers#{normal}##LAST#", "#GOLD##{bold}#虚无技能可见标记#{normal}##LAST#", "_t")
+t("Herald of the Herald", "湮灭使者的使者", "_t")
+t([[If enabled, targets with the Nihil effect will be marked with a visual indicator of the number of negative magical effects that have been applied to them while Nihil is active, as an aid in summoning a Herald of Oblivion via the Unravel Existence talent.
+You will need to restart the game for this change to take effect.]], [[开启时，带有虚无效果的目标，将会标记它身上附加的负面魔法效果的次数，用于计算可以召唤出湮灭使者的次数。
+这一选项需要重启游戏才能生效。]], "_t")
+t("enabled", "已启用", "_t")
+t("disabled", "已禁用", "_t")
+
+------------------------------------------------
+section "tome-zomnibus/hooks/hooks-notestoself.lua"
 
 t("View/edit character notes", "查看/编辑角色笔记", "_t")
 t("Character notes:  #0080FF#%s", "角色笔记:  #0080FF#%s", "tformat")
@@ -468,7 +582,31 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-opt-skip-t1.lua"
+section "tome-zomnibus/hooks/hooks-opt-in-adventurers.lua"
+
+t("#GOLD##{bold}#Adventurers party response strategy#WHITE##{normal}#", "#GOLD##{bold}#是否跳过冒险者巡逻队#WHITE##{normal}#", "_t")
+t("Opt-in Adventurers Parties", "跳过冒险者巡逻队", "_t")
+t("Always evade", "总是躲避", "_t")
+t("Never evade", "永不躲避", "_t")
+t("Ask", "询问", "_t")
+t("Controls game behavior if you are attacked by adventurers parties or ziguranth patrols (or Allied Kingdoms patrols, for undead) on the world map.  'Ask' (the default) will present a dialog for you to choose to evade or fight the attacker; 'Always evade' and 'Never evade' will choose one of the two options automatically.", "控制你被冒险家或伊格巡逻队（或者不死族被联合王国巡逻队）攻击时候的行为。“询问”（默认）会弹出窗口，询问你躲避还是发动攻击，“总是躲避”和“永不躲避”会自动选择某一项选项。", "_t")
+t("Adventurers party response strategy", "是否跳过冒险者巡逻队", "_t")
+t("Select strategy", "选择策略", "_t")
+t("Controls game behavior if you are attacked by orc patrols on the world map.  'Ask' (the default) will present a dialog for you to choose to evade or fight the attacker; 'Always evade' and 'Never evade' will choose one of the two options automatically.", "控制你被兽人巡逻队攻击时候的行为。“询问”（默认）会弹出窗口，询问你躲避还是发动攻击，“总是躲避”和“永不躲避”会自动选择某一项选项。", "_t")
+t("#GOLD##{bold}#Orc patrol response strategy#WHITE##{normal}#", "#GOLD##{bold}#是否跳过兽人巡逻队#WHITE##{normal}#", "_t")
+t("Orc patrol response strategy", "是否跳过兽人巡逻队", "_t")
+t("Controls game behavior if you are attacked by Sun Paladin patrols or Anorithil patrols on the world map.  'Ask' (the default) will present a dialog for you to choose to evade or fight the attacker; 'Always evade' and 'Never evade' will choose one of the two options automatically.", "控制你被太阳堡垒巡逻队攻击时候的行为。“询问”（默认）会弹出窗口，询问你躲避还是发动攻击，“总是躲避”和“永不躲避”会自动选择某一项选项。", "_t")
+t("#GOLD##{bold}#Sunwall patrol response strategy#WHITE##{normal}#", "#GOLD##{bold}#是否跳过太阳堡垒巡逻队#WHITE##{normal}#", "_t")
+t("Sunwall patrol response strategy", "是否跳过太阳堡垒巡逻队", "_t")
+t("If this option is set to a nonzero value and any of \"Adventurers party response strategy\", \"Orc patrol response strategy\" or \"Sunwall patrol response strategy\" is set to \"Ask\", then choosing \"Evade\" from the resulting evade-or-fight dialog will temporarily suppress said dialog and evade without prompting for the specified number of turns.  Set to 0 to disable.", "如果选项被视为任何一个非0值，且“是否跳过冒险者巡逻队”、“是否跳过兽人巡逻队”或“是否跳过太阳堡垒巡逻队”的选项被设置为“询问”。那么选择“躲避”将会自动让你跳过接下来若干回合的巡逻队。设置回合数为0来禁用这一效果。", "_t")
+t("#GOLD##{bold}#Extended evade duration#WHITE##{normal}#", "#GOLD##{bold}#延长躲避时间#WHITE##{normal}#", "_t")
+t("disabled", "已禁用", "_t")
+t("%d turns", "%d 回合", "tformat")
+t("Extended evade duration", "延长躲避时间", "_t")
+t("Turns to evade:", "躲避回合数:", "_t")
+
+------------------------------------------------
+section "tome-zomnibus/hooks/hooks-opt-skip-t1.lua"
 
 t("#GOLD##{bold}#Short-circuit some early dungeons#WHITE##{normal}#", "#GOLD##{bold}#跳过早期地城#WHITE##{normal}#", "_t")
 t("Tier-1 Short Circuit Option", "跳过T1地城选项", "_t")
@@ -477,7 +615,14 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-pointplanner.lua"
+section "tome-zomnibus/hooks/hooks-opt-zone.lua"
+
+t("#GOLD##{bold}#Alternate zones#WHITE##{normal}#", "#GOLD##{bold}#变种地图#WHITE##{normal}#", "_t")
+t("Alternate Zones Option", "变种地图选项", "_t")
+t("Allow, block or force the appearance of alternate versions of some dungeons and zones.  Alternates can be blocked or forced unilaterally or allowed, blocked or forced individually by zone.  Changing this option will not affect any zones you've already visited with this character.#WHITE#", "允许，禁止或强制特定地城的变种地图。变种地图可以被统一禁用或启用，或者以地图的级别开启或关闭。改变这一选项无法修改你当前角色已经访问过的地图。#WHITE#", "_t")
+
+------------------------------------------------
+section "tome-zomnibus/hooks/hooks-pointplanner.lua"
 
 t("Create a talent point plan", "创建技能点规划", "_t")
 t("Reality adjustment", "调整现实", "_t")
@@ -489,7 +634,45 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-rl-keys.lua"
+section "tome-zomnibus/hooks/hooks-resustain.lua"
+
+t("Mark sustains for restart", "标记需重启的持续技能", "_t")
+t("#GOLD##{bold}#Restart marked sustains while resting#WHITE##{normal}#", "#GOLD##{bold}#休息时重启这些标记的持续技能#WHITE##{normal}#", "_t")
+t("Restart Sustains", "重启持续技能", "_t")
+t("If enabled, marked sustains that have been deactivated will be restarted during normal resting as they are with the \"Restart Sustains\" button.", "启动时，被标记的持续技能将会在你休息的时候被自动重新开启。使用“标记需重启的持续技能”按钮设置技能。", "_t")
+t("enabled", "已启用", "_t")
+t("disabled", "已禁用", "_t")
+t("Unmark talent for restart", "取消技能自动重启", "_t")
+t("Mark talent for restart", "标记技能自动重启", "_t")
+
+------------------------------------------------
+section "tome-zomnibus/hooks/hooks-rl-chat.lua"
+
+t("#GOLD##{bold}#Avoid movement chars in chat dialogs#{normal}##LAST#", "#GOLD##{bold}#避免在聊天框中触发移动。#{normal}##LAST#", "_t")
+t("Roguelike Chat Guard", "Roguelike聊天按键保护", "_t")
+t([[Optionally modifies chat dialogs such that any letter key that is bound to a movememt action in your current keybindings will not be assigned as a "shortcut" key for any chat response, to avoid accidentally selecting a chat option when trying to move.  Supported option values are:
+  · "#LIGHT_BLUE#None#LAST#":  No chat dialogs are modified, as per baseline game behavior.
+  · "#LIGHT_BLUE#Some#LAST#":  Certain "high-risk" chat dialogs that are likely to be encountered while the player is moving are modified; others are not.
+  · "#LIGHT_BLUE#All#LAST#":  A;l chat dialogs are modified.]], [[修改聊天框，确保任何被绑定到移动快捷键的技能不会被设置为聊天回复的快捷键，以防止在移动时误触聊天选项。可选项包括：
+  · "#LIGHT_BLUE#无#LAST#":  不改变聊天框。
+  · "#LIGHT_BLUE#部分#LAST#":  一些“高风险”的聊天框会被禁用。
+  · "#LIGHT_BLUE#所有#LAST#":  所有聊天框都被修改。]], "_t")
+t("None", "无", "_t")
+t("Some", "部分", "_t")
+t("All", "所有", "_t")
+t("Avoid movement chars in chat dialogs", "避免在聊天框中使用移动字符", "_t")
+t("If enabled, no \"shortcut\" keys will be used in chat dialogs.  This supercedes the \"Avoid movement chars in chat dialogs\" option if enabled.", "开启后，不会在聊天中使用快捷键。这一选项覆盖“避免在聊天框中使用移动字符”", "_t")
+t("#GOLD##{bold}#No hotkeys in chat dialogs#{normal}##LAST#", "#GOLD##{bold}#聊天框内禁用快捷键#{normal}##LAST#", "_t")
+t("enabled", "已启用", "_t")
+t("disabled", "已禁用", "_t")
+-- untranslated text
+--[==[
+t("???", "???", "_t")
+--]==]
+
+
+------------------------------------------------
+section "tome-zomnibus/hooks/hooks-rl-keys.lua"
 
 t("#GOLD##{bold}#Roguelike keybindings#{normal}##LAST#", "#GOLD##{bold}#Roguelike键位#{normal}##LAST#", "_t")
 t("Roguelike Keybindings", "Roguelike键位", "_t")
@@ -576,7 +759,7 @@ t("Roguelike keybindings installed.", "Roguelike键位已安装。", "_t")
 t("Roguelike keybindings uninstalled.", "Roguelike键位已卸载。", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-savefile-note.lua"
+section "tome-zomnibus/hooks/hooks-savefile-note.lua"
 
 t("#GOLD##{bold}#Prompt for savefile note on save#{normal}##LAST#", "#GOLD##{bold}#存档时提示存档笔记#{normal}##LAST#", "_t")
 t("Savefile Notes", "存档笔记", "_t")
@@ -589,7 +772,7 @@ t("Change Savefile Note", "修改存档笔记", "_t")
 t("Save Game", "保存游戏", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-store-wishlist.lua"
+section "tome-zomnibus/hooks/hooks-store-wishlist.lua"
 
 t("#GOLD##{bold}#Store wish list tracker popup#WHITE##{normal}#", "#GOLD##{bold}#商店愿望单弹窗#WHITE##{normal}#", "_t")
 t("Store Wish List", "商店愿望单", "_t")
@@ -608,12 +791,12 @@ t("Don't add notes", "Don't add notes", "_t")
 
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-timedrest.lua"
+section "tome-zomnibus/hooks/hooks-timedrest.lua"
 
 t("Rest for a specific number of turns", "休息指定回合数", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-tooltip-away.lua"
+section "tome-zomnibus/hooks/hooks-tooltip-away.lua"
 
 t("#GOLD##{bold}#Clear tooltips on focus change#{normal}##LAST#", "#GOLD##{bold}#失去焦点时清理信息框#{normal}##LAST#", "_t")
 t("Tooltip Cleanup", "信息框清理", "_t")
@@ -622,7 +805,7 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-tshield-track.lua"
+section "tome-zomnibus/hooks/hooks-tshield-track.lua"
 
 t("#GOLD##{bold}#Visual tracking of Time Shield#{normal}##LAST#", "#GOLD##{bold}#时间盾显示#{normal}##LAST#", "_t")
 t("Time Shield Tracking", "时间盾显示", "_t")
@@ -633,7 +816,13 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-unwield-hotkey.lua"
+section "tome-zomnibus/hooks/hooks-unplot-item.lua"
+
+t("[insert %s]", "[插入 %s]", "tformat")
+t("[leave]", "[离开]", "_t")
+
+------------------------------------------------
+section "tome-zomnibus/hooks/hooks-unwield-hotkey.lua"
 
 t("#GOLD##{bold}#Hotkey handling on unwield#WHITE##{normal}#", "#GOLD##{bold}#脱下装备后快捷键#WHITE##{normal}#", "_t")
 t("Juggle Hotkeys on Unwield", "调整脱下装备后快捷键处理", "_t")
@@ -661,13 +850,13 @@ t("enabled", "已启用", "_t")
 t("disabled", "已禁用", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-use-item.lua"
+section "tome-zomnibus/hooks/hooks-use-item.lua"
 
 t("You create: %s", "你制造了：%s", "logPlayer")
 t("%s telekinetically seizes: %s.", "%s用念力装备了%s", "logSeen")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/hooks-wall-clock.lua"
+section "tome-zomnibus/hooks/hooks-wall-clock.lua"
 
 t("#GOLD##{bold}#Wall clock format#{normal}##LAST#", "#GOLD##{bold}#时钟格式#{normal}##LAST#", "_t")
 t("Wall Clock", "时钟", "_t")
@@ -678,7 +867,7 @@ t("Wall clock format", "时钟格式", "_t")
 t("Select clock format", "选择时钟格式", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/hooks/zom-opt-tab.lua"
+section "tome-zomnibus/hooks/zom-opt-tab.lua"
 
 t("#YELLOW#Options provided by the %s addon, standalone or as a component of ZOmnibus or ZOmnibus Lite.#LAST#", "#YELLOW#由 %s 插件提供的功能，可以单独安装或作为 ZOmnibus 或 ZOmnibus Lite 的组件。#LAST#", "tformat")
 t("#YELLOW#Options provided by the %s addon, standalone or as a component of ZOmnibus.#LAST#", "#YELLOW#由 %s 插件提供的功能，可以单独安装或作为 ZOmnibus 的组件。#LAST#", "tformat")
@@ -689,24 +878,40 @@ t("#GREY##{italic}#-- %s --#{normal}##LAST#", "#GREY##{italic}#-- %s --#{normal}
 
 
 ------------------------------------------------
-section "tome-zomnibus_lite/init.lua"
+section "tome-zomnibus/init.lua"
 
 
 -- untranslated text
 --[==[
-t("ZOmnibus Lite", "ZOmnibus Lite", "init.lua long_name")
-t("The cosmetic/informational/UI addons from ZOmnibus.", "The cosmetic/informational/UI addons from ZOmnibus.", "init.lua description")
+t("ZOmnibus Addon Pack", "ZOmnibus Addon Pack", "init.lua long_name")
+t("A convenience conglomeration of several smaller utility addons", "A convenience conglomeration of several smaller utility addons", "init.lua description")
 --]==]
 
 
 ------------------------------------------------
-section "tome-zomnibus_lite/overload/mod/dialogs/GetRawText.lua"
+section "tome-zomnibus/overload/mod/dialogs/AltZoneConfig.lua"
+
+t("Allow/Block Alternate Zones", "允许/禁用变种地图", "_t")
+t("Block all alternate zones", "禁用所有变种地图", "_t")
+t("Force all alternate zones", "强制所有变种地图", "_t")
+t("Block/force by zone:", "分地图禁用/强制:", "_t")
+t("#SLATE#[NOTE:  Zones you have not yet visited with any character will not be listed here.]#LAST", "#SLATE#[注意：你没有访问过的地图不会列入在这里]#LAST", "_t")
+t("Block %s", "禁用 %s", "tformat")
+t("Force %s", "强制 %s", "tformat")
+t("all blocked", "全部禁止", "_t")
+t("all forced", "全部强制", "_t")
+t("%d/%d blocked", "%d/%d 已禁用", "tformat")
+t("%d/%d forced", "%d/%d 已强制", "tformat")
+t("%d/%d blocked, %d/%d forced", "%d/%d 已禁用, %d/%d 已强制", "tformat")
+
+------------------------------------------------
+section "tome-zomnibus/overload/mod/dialogs/GetRawText.lua"
 
 t("Error", "错误", "_t")
 t("Must be between %i and %i characters", "必须介于 %i 到 %i 字符之间", "tformat")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/overload/mod/dialogs/PointPlanDialog.lua"
+section "tome-zomnibus/overload/mod/dialogs/PointPlanDialog.lua"
 
 t("#YELLOW##{italic}#Right-click to configure this option.#{normal}##LAST#", "#YELLOW##{italic}#右键切换选项。#{normal}##LAST#", "_t")
 t("Select to show all talent sources supported by the planner, including those the planner cannot confirm that you've seen.  This will likely include sources that are not accessible to this character, and may include sources that you don't know how to obtain; use at your own risk.", "选择显示规划器支持的所有技能来源，包括规划器无法确认你是否见过的那些。这也会包括你暂时无法访问的技能来源，包括你不知如何获得的那些。小心使用。", "_t")
@@ -744,9 +949,6 @@ t("Undead/Lich tree and stat boosts from the Lich race evolution", "巫妖种族
 t("Spell/Thaumaturgy tree from the High Thaumaturgist class evolution", "高阶奇术师技能觉醒", "_t")
 t("talent trees from the Fallen class evolution", "堕落者职业觉醒", "_t")
 t("%s tree and 5 generic talent points from the Worldly Knowledge prodigy", "%s技能树和5通用技能，来自渊博学识觉醒", "tformat")
-t(" talent", "技能", "_t")
-t(" tree", "技能树", "_t")
-t("%s%s from the %s escort quest", "%s%s来自%s护送任务", "tformat")
 t("%s tree from the Old Psi-Machine", "%s 技能书 来自古老灵能机器", "tformat")
 t("%s talent from the Old Psi-Machine", "%s 技能 来自古老灵能机器", "tformat")
 t("Technomancer evolution, with %s unlocked", "科技法师职业进阶，解锁 %s", "tformat")
@@ -792,7 +994,7 @@ t("%s (point planner clone)", "%s (point planner clone)", "tformat")
 
 
 ------------------------------------------------
-section "tome-zomnibus_lite/overload/mod/dialogs/SavefileNote.lua"
+section "tome-zomnibus/overload/mod/dialogs/SavefileNote.lua"
 
 t("Savefile Note", "存档笔记", "_t")
 t("Note for this savefile: ", "对该存档的笔记: ", "_t")
@@ -804,8 +1006,9 @@ t("Error", "错误", "_t")
 t("Must be between %i and %i characters.", "必须介于 %i 和 %i 个字符之间", "tformat")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/overload/mod/dialogs/ShowNotes.lua"
+section "tome-zomnibus/overload/mod/dialogs/ShowNotes.lua"
 
+t("Character notes", "角色笔记", "_t")
 t("#{bold}#Added/changed#{normal}#", "#{bold}#添加/修改日期#{normal}#", "_t")
 t("Add note", "添加笔记", "_t")
 t("Remove all notes", "移除所有笔记", "_t")
@@ -828,7 +1031,7 @@ t("4444-44-44 44:44:44", "4444-44-44 44:44:44", "_t")
 
 
 ------------------------------------------------
-section "tome-zomnibus_lite/overload/mod/dialogs/SourceSeenDialog.lua"
+section "tome-zomnibus/overload/mod/dialogs/SourceSeenDialog.lua"
 
 t("Mark Talent Source as Seen", "将技能设置为已了解", "_t")
 t("The Talent Point Planner makes an effort to show you only talent sources it can confirm you've seen.  Some sources can be confirmed by the presence of achievements or unlocks, but for others, you have to actually acquire the points in a game with this addon installed.  As a convenience, if there is a talent source that the planner doesn't know you've seen, and you know its activation code, you can enter it here to inform the planner that you've seen the source.", "技能点规划器努力只向你展示它能确认你见过的技能。有些技能来源可以通过成就或解锁的存在来确认，但对于其他来源，你必须在安装了这个插件的游戏中实际加点。为了方便起见，如果有一个规划器不知道你见过的技能来源，而你又知道它的激活码，你可以在这里输入它，告知规划器你见过这个技能。", "_t")
@@ -837,7 +1040,32 @@ t("Okay", "好", "_t")
 t("Cancel", "取消", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/overload/mod/dialogs/WishListDialog.lua"
+section "tome-zomnibus/overload/mod/dialogs/SustainsDialog.lua"
+
+t([[#LIGHT_GREEN#Left-click#LAST# (or press <#LIGHT_GREEN#Enter#LAST#>) on a talent to add it to or remove it from the list of sustains to restart.
+#LIGHT_GREEN#Right-click#LAST# (or press '#LIGHT_GREEN#~#LAST#') on a talent to toggle its confirmation status; if any marked talents are active when you click 'Restart Sustains', you will be prompted to confirm the restart.
+Drag a talent to add it to or remove it from the restart lists, or to change restart order.]], [[#LIGHT_GREEN#左键点击#LAST#(或按<#LIGHT_GREEN#Enter#LAST#>键)将会把技能加入或移除自动重启的持续技能列表。
+#LIGHT_GREEN#Right-click#LAST# (or press '#LIGHT_GREEN#~#LAST#') on a talent to toggle its confirmation status; if any marked talents are active when you click 'Restart Sustains', you will be prompted to confirm the restart.
+Drag a talent to add it to or remove it from the restart lists, or to change restart order.]], "_t")
+t("Restart Sustains", "重启持续技能", "_t")
+t("#{bold}#Sustains to restart#{normal}#", "#{bold}#自动重启的持续技能#{normal}#", "_t")
+t("#{bold}#Other sustains#{normal}#", "#{bold}#其他持续技能#{normal}#", "_t")
+t("Talent", "技能", "_t")
+t("Status", "状态", "_t")
+t("You will be asked to confirm restart if this talent is active.", "若该技能已开启，重启这一技能将会触发确认。", "_t")
+t("This sustain will not be restarted until %s becomes active.", "这一持续技能会在%s激活后重启。", "tformat")
+t("Drop talent here to add it to the list of sustains to restart.", "把技能拖动到这里，加入重启技能列表。", "_t")
+t("Drop talent here to allow it to be restarted before its current \"parent\" (%s).", "把技能拖动到这里，在其父技能（%s）前重启", "tformat")
+t("Drop talent here to restart it after %s has been reactivated.", "把技能拖动到这里，在%s重启后重启", "tformat")
+t("Drop talent here to remove it from the list of sustains to restart.", "把技能拖动到这里，将其移除自动重启的持续技能列表。", "_t")
+t("Active", "启动", "_t")
+t("Conduit", "导管", "_t")
+t("On cooldown", "冷却中", "_t")
+t("Unavailable", "不可用", "_t")
+t("Drag a talent here from the \"Other sustains\" list to add it to the list of sustains to restart.", "把一个从“其他持续技能”列表中的技能拖过来，加入自动重启的持续技能列表。", "_t")
+
+------------------------------------------------
+section "tome-zomnibus/overload/mod/dialogs/WishListDialog.lua"
 
 t("Store Wish List", "商店愿望单", "_t")
 t("Items Seen in Stores", "商店中物品", "_t")
@@ -861,7 +1089,7 @@ t("$", "$", "_t")
 
 
 ------------------------------------------------
-section "tome-zomnibus_lite/superload/engine/dialogs/GameMenu.lua"
+section "tome-zomnibus/superload/engine/dialogs/GameMenu.lua"
 
 t("<Space>", "<空格>", "_t")
 t("Resume", "暂停游戏", "_t")
@@ -882,10 +1110,13 @@ t("Character Sheet", "角色信息面板", "_t")
 t("Game Options", "游戏选项", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/superload/mod/class/Actor.lua"
+section "tome-zomnibus/superload/mod/class/Actor.lua"
 
+t("HP: %d (%d%%) #GREEN#+%0.2f#LAST#", "生命值：%d (%d%%) #GREEN#+%0.2f#LAST#", "tformat")
+t("HP: %d/%d (-%d%%) #GREEN#+%0.2f#LAST#", "生命值：%d/%d (-%d%%) #GREEN#+%0.2f#LAST#", "tformat")
 t("Wield/Replace", "装备/替换", "_t")
 t("Replace which worn/wielded item?", "替换哪个装备物品？", "_t")
+t("#LIGHT_RED#%s's %s has been deactivated!", "#LIGHT_RED#%s的%s被关闭了！", "logSeen")
 t("You extract %s from %s", "你从%s中提炼了%s。", "logPlayer", {2,1})
 -- untranslated text
 --[==[
@@ -894,7 +1125,7 @@ t("%s (%s)", "%s (%s)", "tformat")
 
 
 ------------------------------------------------
-section "tome-zomnibus_lite/superload/mod/class/Game.lua"
+section "tome-zomnibus/superload/mod/class/Game.lua"
 
 t("Timed Rest", "休息指定回合", "_t")
 t("Turns:", "回合数:", "_t")
@@ -908,20 +1139,17 @@ t("Save and go back to main menu?", "保存并返回主菜单？", "_t")
 t("Save and exit game?", "保存并退出游戏？", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/superload/mod/class/Grid.lua"
+section "tome-zomnibus/superload/mod/class/Grid.lua"
 
 t("Landmark: ", "地标: ", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/superload/mod/class/Object.lua"
+section "tome-zomnibus/superload/mod/class/Object.lua"
 
 t("NOTE: ", "笔记: ", "_t")
 t("This item is on your store wish list.", "这个物品在你的愿望单中。", "_t")
 t("This item has one or more egos on your ego wish list.", "这个物品含有你词缀愿望单上的词缀。", "_t")
-t("[vs. %s]", "[对比 %s]", "tformat")
 t("%s of %s", "%s的第%s层", "tformat", {2,1})
-t("[vs. %s (%s, %d of %d)]", "[对比 %s (%s, %d of %d)]", "tformat")
-t("[vs. %s (%s)]", "[对比 %s (%s)]", "tformat")
 t("Tap <shift> to cycle through comparison choices", "按 <Shift> 切换比较选项", "_t")
 t("%sCooldown: ", "%s冷却时间：", "tformat")
 t("Fixed", "固定", "_t")
@@ -933,6 +1161,9 @@ t("in Metaphasic Spin", "在相位旋转", "_t")
 t("on body", "在身上", "_t")
 -- untranslated text
 --[==[
+t("[vs. %s]", "[vs. %s]", "tformat")
+t("[vs. %s (%s, %d of %d)]", "[vs. %s (%s, %d of %d)]", "tformat")
+t("[vs. %s (%s)]", "[vs. %s (%s)]", "tformat")
 t("#LIGHT_GREEN#+%s#LAST#", "#LIGHT_GREEN#+%s#LAST#", "tformat")
 t("#RED#-%s#LAST#, %s", "#RED#-%s#LAST#, %s", "tformat")
 t("#RED#-%s#LAST#", "#RED#-%s#LAST#", "tformat")
@@ -940,45 +1171,57 @@ t("#RED#-%s#LAST#", "#RED#-%s#LAST#", "tformat")
 
 
 ------------------------------------------------
-section "tome-zomnibus_lite/superload/mod/class/Player.lua"
+section "tome-zomnibus/superload/mod/class/Player.lua"
 
+t("These guys look tough.  Do you want to fight them or evade them?", "敌人很强，你要战斗还是躲避他们？", "_t")
+t("Evade", "躲避", "_t")
+t("Fight", "战斗", "_t")
 t("#AQUAMARINE#You have gained one more life (%d remaining).#LAST#", "#AQUAMARINE#你额外获得了一条命（剩余生命数：%d）。#LAST#", "logPlayer")
+t("#LIGHT_RED#LOW HEALTH WARNING!", "#LIGHT_RED#低血量警报！", "say")
+t("You have fallen below %d%% of your max life", "你的生命值下降到最大生命值%d%%以下", "tformat")
+t("Low Health!", "低血量！", "_t")
+t("%s's %s", "%s的%s", "tformat")
+t("You now have the ingredients for the following elixirs:", "你有以下药剂的材料：", "_t")
+t("#ANTIQUE_WHITE#Quest: #AQUAMARINE#%s", "#ANTIQUE_WHITE#任务：#AQUAMARINE#%s", "tformat")
+-- untranslated text
+--[==[
+t("#%s#- %s", "#%s#- %s", "tformat")
+--]==]
+
 
 ------------------------------------------------
-section "tome-zomnibus_lite/superload/mod/class/Store.lua"
+section "tome-zomnibus/superload/mod/class/Store.lua"
 
 t("Reality Adjustment", "调整现实", "_t")
 t("One or more Ancient Automated Archives has been repaired on this level.  We Apologize for the Inconvenience.", "地图上的某个远古自动宝库已被修复。为你造成的困扰我们深表歉意。", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/superload/mod/class/uiset/Minimalist.lua"
+section "tome-zomnibus/superload/mod/class/uiset/Minimalist.lua"
 
 t([[#GOLD#Passive trigger cooldown for: #{bold}#%s#{normal}##WHITE#
 %s]], [[#GOLD#被动触发冷却时间: #{bold}#%s#{normal}##WHITE#
 %s]], "tformat")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/superload/mod/dialogs/Birther.lua"
+section "tome-zomnibus/superload/mod/dialogs/Birther.lua"
 
-t([[You have enabled both ZOmnibus Lite and one or more of its component addons.  In particular, the following conflicting addons are enabled:
-
-  · #YELLOW#%s#LAST#
-  
-Having both ZOmnibus Lite and any of its component addons enabled for the same character is very likely to cause errors or damage your character.  We recommend that you return to the Addons dialog and disable either ZOmnibus Lite or the addons listed above.]], [[你同时启用了ZOmnibus Lite和它的组件之一。具体来说，以下冲突组件：
+t([[You have enabled both the ZOmnibus Addon Pack and one or more of its component addons.  In particular, the following conflicting addons are enabled:
 
   · #YELLOW#%s#LAST#
   
-在同一个角色上同时启用ZOmnibus Lite和它的组件将会引发错误，并造成存档损坏。建议返回插件选择界面，禁用ZOmnibus Lite或上述插件。"]], "tformat")
-t("#LIGHT_RED#ZOmnibus Lite Addon Collision#LAST#", "#LIGHT_RED#ZOmnibus Lite插件冲突#LAST#", "_t")
-t("You have enabled both the #YELLOW#ZOmnibus Addon Pack#LAST# and #YELLOW#ZOmnibus Lite#LAST#.  Having both addons enabled for the same character is very likely to cause errors or damage your character.  We recommend that you return to the Addons dialog and disable either ZOmnibus or ZOmnibus Lite.", "你同时启用了#YELLOW#ZOmnibus Addon Pack#LAST#和#YELLOW#ZOmnibus Lite#LAST#。同时启用将会引发错误，并造成存档损坏。建议返回插件选择界面，禁用ZOmnibus或ZOmnibus Lite", "_t")
-t("#LIGHT_RED#ZOmnibus/Lite Collision#LAST#", "#LIGHT_RED#ZOmnibus/Lite插件冲突#LAST#", "_t")
+Having both ZOmnibus and any of its component addons enabled for the same character is very likely to cause errors or damage your character.  We recommend that you return to the Addons dialog and disable either ZOmnibus or the addons listed above.]], [[你同时启用了ZOmnibus和它的组件之一。具体来说，以下冲突组件：
+
+· #YELLOW#%s#LAST#
+
+在同一个角色上同时启用ZOmnibus和它的组件将会引发错误，并造成存档损坏。建议返回插件选择界面，禁用ZOmnibus Lite或上述插件。]], "tformat")
+t("#LIGHT_RED#ZOmnibus Addon Collision#LAST#", "#LIGHT_RED#ZOmnibus插件冲突#LAST#", "_t")
 t("No BG", "无背景", "_t")
 t("Grass", "草", "_t")
 t("Floor", "地板", "_t")
 t("Snow", "雪", "_t")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/superload/mod/dialogs/LevelupDialog.lua"
+section "tome-zomnibus/superload/mod/dialogs/LevelupDialog.lua"
 
 t([[Stat points allow you to increase your core stats.
 Each level you gain 3 new stat points to use.
@@ -1039,7 +1282,7 @@ t("%s: %d+%d", "%s: %d+%d", "tformat")
 
 
 ------------------------------------------------
-section "tome-zomnibus_lite/superload/mod/dialogs/MapMenu.lua"
+section "tome-zomnibus/superload/mod/dialogs/MapMenu.lua"
 
 t("Examine objects on floor", "检查地板上的物品", "_t")
 t("Examine object on floor", "检查地板上的物品", "_t")
@@ -1056,13 +1299,13 @@ t("%s has no room for: %s.", "%s没有空间放置：%s。", "logSeen")
 t("There is nothing to pick up there.", "这里没有待拾取的物品。", "logSeen")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/superload/mod/dialogs/ShowStore.lua"
+section "tome-zomnibus/superload/mod/dialogs/ShowStore.lua"
 
 t("Wish List", "加入愿望单", "_t")
 t("Add %s to your wish list?", "将%s加入愿望单？", "tformat")
 
 ------------------------------------------------
-section "tome-zomnibus_lite/superload/mod/dialogs/UseItemDialog.lua"
+section "tome-zomnibus/superload/mod/dialogs/UseItemDialog.lua"
 
 t("Identify", "鉴定", "_t")
 t("Move to normal inventory", "移动到普通物品栏", "_t")
